@@ -21,9 +21,20 @@ public class MainActivity extends AppCompatActivity {
         rollButton = (Button) findViewById(R.id.rollbutton);
 
 
-        ImageView leftDice = (ImageView) findViewById(R.id.image_leftDice);
+        final ImageView leftDice = (ImageView) findViewById(R.id.image_leftDice);
 
-        ImageView rightDice = (ImageView) findViewById(R.id.image_rightDice);
+        final ImageView rightDice = (ImageView) findViewById(R.id.image_rightDice);
+
+
+        final int[] diceArray = { R.drawable.dice1,
+                            R.drawable.dice2,
+                            R.drawable.dice3,
+                            R.drawable.dice4,
+                            R.drawable.dice5,
+                            R.drawable.dice6
+        };
+
+
 
         rollButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,8 +48,11 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.d("Dicee", "The random Number is: " + number);
 
+                leftDice.setImageResource(diceArray[number]);
 
+                number = randomNumberGenerator.nextInt(6);
 
+                rightDice.setImageResource(diceArray[number]);
             }
         });
 
